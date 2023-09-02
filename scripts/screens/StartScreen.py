@@ -32,6 +32,7 @@ from .Screens import Screens
 from ..housekeeping.datadir import get_data_dir, get_cache_dir
 from ..housekeeping.update import has_update, UpdateChannel, get_latest_version_number
 from ..housekeeping.version import get_version_info
+from HalogenMods import playButtonSound
 
 logger = logging.getLogger(__name__)
 has_checked_for_update = False
@@ -53,6 +54,7 @@ class StartScreen(Screens):
         """This is where events that occur on this page are handled.
         For the pygame_gui rewrite, button presses are also handled here. """
         if event.type == pygame_gui.UI_TEXT_BOX_LINK_CLICKED:
+            playButtonSound()
             if platform.system() == 'Darwin':
                 subprocess.Popen(["open", "-u", event.link_target])
             elif platform.system() == 'Windows':
@@ -60,6 +62,7 @@ class StartScreen(Screens):
             elif platform.system() == 'Linux':
                 subprocess.Popen(['xdg-open', event.link_target])
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             screens = {
                 self.continue_button: 'camp screen',
                 self.switch_clan_button: 'switch clan screen',

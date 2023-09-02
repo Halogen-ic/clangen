@@ -17,6 +17,7 @@ from .Screens import Screens
 from ..housekeeping.datadir import get_data_dir
 from ..housekeeping.version import get_version_info
 
+from HalogenMods import playButtonSound
 
 logger = logging.getLogger(__name__)
 
@@ -97,7 +98,7 @@ class ClanSettingsScreen(Screens):
                     game.clan.switch_setting(key)
                     self.settings_changed = True
                     #self.update_save_button()
-                           
+                    playButtonSound()
                     opens = {
                         "general": self.open_general_settings,
                         "relation": self.open_relation_settings,

@@ -1,6 +1,7 @@
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 import pygame
 from scripts.events import events_class
 from scripts.utility import get_living_clan_cat_count, get_text_box_theme, scale, shorten_text_to_fit
@@ -78,6 +79,7 @@ class EventsScreen(Screens):
             return
         
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             
             if event.ui_element == self.timeskip_button:
                 

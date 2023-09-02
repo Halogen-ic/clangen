@@ -20,6 +20,7 @@ import sys
 import time
 import os
 import threading
+import random
 
 from importlib.util import find_spec
 
@@ -167,8 +168,6 @@ import pygame.mixer as mixer
 pymixer = mixer.init()
 
 
-
-
 # import all screens for initialization (Note - must be done after pygame_gui manager is created)
 from scripts.screens.all_screens import start_screen # pylint: disable=ungrouped-imports
 
@@ -210,7 +209,7 @@ def load_data():
 
 def loading_animation():
     global finished_loading
-    
+    time.sleep(10)
     # Load images, adjust color
     color = pygame.Surface((200, 210))
     openingSound.play()

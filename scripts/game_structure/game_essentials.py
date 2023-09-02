@@ -534,7 +534,6 @@ class Game():
                     game.cur_events_list.append(event_obj)
         except FileNotFoundError:
             pass
-
     def get_config_value(self, *args):
         """Fetches a value from the self.config dictionary. Pass each key as a 
         seperate arugment, in the same order you would access the dictionary. 
@@ -583,7 +582,7 @@ if game.settings['fullscreen']:
         (screen_x, screen_y), pygame.FULLSCREEN | pygame.SCALED)
 else:
     screen_x, screen_y = 800, 700
-    screen = pygame.display.set_mode((screen_x, screen_y))
+    screen = pygame.display.set_mode((screen_x, screen_y), pygame.RESIZABLE)
 
 
 def load_manager(res: tuple):

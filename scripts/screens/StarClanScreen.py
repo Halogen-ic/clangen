@@ -4,6 +4,8 @@ import pygame_gui
 
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
+
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton
 from scripts.utility import scale, shorten_text_to_fit
@@ -43,6 +45,7 @@ class StarClanScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.dark_forest_button:
                 self.change_screen('dark forest screen')
             elif event.ui_element == self.unknown_residence_button:

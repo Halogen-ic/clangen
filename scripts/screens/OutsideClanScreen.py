@@ -7,7 +7,7 @@ from .Screens import Screens
 from scripts.game_structure.game_essentials import game, screen, screen_x, screen_y, MANAGER
 from scripts.cat.cats import Cat
 from ..utility import get_text_box_theme, scale, shorten_text_to_fit
-
+from HalogenMods import playButtonSound
 
 class OutsideClanScreen(Screens):
 
@@ -43,6 +43,7 @@ class OutsideClanScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.your_clan_button:
                 self.change_screen("list screen")
             if event.ui_element == self.to_dead_button:

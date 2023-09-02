@@ -18,6 +18,7 @@ from scripts.utility import get_text_box_theme, scale, quit  # pylint: disable=r
 from .Screens import Screens
 from ..housekeeping.datadir import get_data_dir
 from ..housekeeping.version import get_version_info
+from HalogenMods import playButtonSound
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +32,7 @@ class SwitchClanScreen(Screens):
         TODO: DOCS
         """
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if game.switches['window_open']:
                 pass
             elif event.ui_element == self.main_menu:

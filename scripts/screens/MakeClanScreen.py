@@ -3,6 +3,7 @@ from random import choice, randrange
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 
 from scripts.utility import get_text_box_theme, scale
 from scripts.clan import Clan
@@ -108,6 +109,7 @@ class MakeClanScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.main_menu:
                 self.change_screen('start screen')
             if self.sub_screen == "game mode":

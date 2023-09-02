@@ -2,6 +2,7 @@ import pygame
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton, UITextBoxTweaked
@@ -15,6 +16,7 @@ class AllegiancesScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             self.menu_button_pressed(event)
 
     def on_use(self):

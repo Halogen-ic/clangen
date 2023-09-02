@@ -3,6 +3,8 @@ from math import ceil
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
+
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton
 from scripts.utility import get_text_box_theme, scale, shorten_text_to_fit
@@ -42,6 +44,7 @@ class ListScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.outside_clan_button:
                 self.change_screen("other screen")
             elif event.ui_element == self.to_dead_button:

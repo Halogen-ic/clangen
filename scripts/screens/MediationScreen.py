@@ -3,6 +3,7 @@ import pygame_gui.elements
 from random import choice
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 
 from scripts.utility import get_text_box_theme, scale, shorten_text_to_fit
 from scripts.cat.cats import Cat
@@ -28,6 +29,7 @@ class MediationScreen(Screens):
     def handle_event(self, event):
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.back_button:
                 self.change_screen('profile screen')
             elif event.ui_element == self.last_med:

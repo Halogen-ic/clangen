@@ -5,6 +5,7 @@ from copy import deepcopy
 import random
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton
@@ -47,6 +48,7 @@ class ClanScreen(Screens):
         if game.switches['window_open']:
             pass
         elif event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.save_button:
                 try:
                     self.save_button_saving_state.show()

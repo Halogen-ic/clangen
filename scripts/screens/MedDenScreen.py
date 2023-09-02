@@ -2,6 +2,7 @@ import pygame
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 from scripts.cat.cats import Cat
 from scripts.game_structure.image_button import UISpriteButton, UIImageButton, UITextBoxTweaked
 from scripts.utility import get_text_box_theme, scale, get_med_cats, shorten_text_to_fit
@@ -54,6 +55,7 @@ class MedDenScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.back_button:
                 self.change_screen('camp screen')
             elif event.ui_element == self.next_med:

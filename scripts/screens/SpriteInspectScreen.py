@@ -3,6 +3,7 @@
 import pygame
 
 from ..game_structure.windows import SaveAsImage
+from HalogenMods import playButtonSound
 
 from scripts.utility import scale
 from .Screens import Screens
@@ -49,6 +50,7 @@ class SpriteInspectScreen(Screens):
             return
         
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.back_button:
                 self.change_screen("profile screen")
             elif event.ui_element == self.next_cat_button:

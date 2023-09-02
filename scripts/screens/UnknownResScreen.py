@@ -8,6 +8,7 @@ from scripts.game_structure.game_essentials import game, screen, screen_x, scree
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from ..utility import scale, shorten_text_to_fit
+from HalogenMods import playButtonSound
 
 
 class UnknownResScreen(Screens):
@@ -44,6 +45,7 @@ class UnknownResScreen(Screens):
 
     def handle_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if event.ui_element == self.dark_forest_button:
                 self.change_screen('dark forest screen')
             elif event.ui_element == self.starclan_button:

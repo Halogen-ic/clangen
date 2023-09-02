@@ -4,10 +4,12 @@ import os
 from random import choice
 
 import pygame
+import random
 
 from ..cat.history import History
 from ..housekeeping.datadir import get_save_dir
 from ..game_structure.windows import ChangeCatName, SpecifyCatGender, KillCat, ChangeCatToggles
+from HalogenMods import playButtonSound
 
 import ujson
 
@@ -151,7 +153,7 @@ class ProfileScreen(Screens):
     def handle_event(self, event):
 
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-
+            playButtonSound()
             if game.switches['window_open']:
                 pass
             elif event.ui_element == self.back_button:

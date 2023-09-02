@@ -3,6 +3,7 @@ import pygame
 import pygame_gui
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 from scripts.utility import get_text_box_theme, scale, shorten_text_to_fit
 from scripts.game_structure.image_button import UIImageButton, UISpriteButton
 from scripts.patrol.patrol import Patrol
@@ -53,6 +54,7 @@ class PatrolScreen(Screens):
             return
         
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             if self.patrol_stage == "choose_cats":
                 self.handle_choose_cats_events(event)
             elif self.patrol_stage == 'patrol_events':

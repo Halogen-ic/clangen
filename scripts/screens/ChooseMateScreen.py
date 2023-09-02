@@ -2,6 +2,7 @@ import pygame.transform
 import pygame_gui.elements
 
 from .Screens import Screens
+from HalogenMods import playButtonSound
 
 from scripts.utility import get_personality_compatibility, get_text_box_theme, scale, scale_dimentions
 from scripts.cat.cats import Cat
@@ -88,6 +89,7 @@ class ChooseMateScreen(Screens):
             return
         
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
+            playButtonSound()
             # Cat buttons list
             if event.ui_element == self.back_button:
                 self.selected_mate_index = 0
