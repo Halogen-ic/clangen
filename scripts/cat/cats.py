@@ -27,6 +27,7 @@ from scripts.event_class import Single_Event
 from .thoughts import Thoughts
 from scripts.cat_relations.inheritance import Inheritance
 
+import pygame
 
 class Cat():
     dead_cats = []
@@ -415,6 +416,9 @@ class Cat():
         self.injuries.clear()
         self.illnesses.clear()
         
+        # Play Death Sound
+        deathSound = pygame.mixer.Sound("resources/sounds/fart meme sound.mp3")
+        deathSound.play()
         # Deal with leader death
         text = ""
         if self.status == 'leader':

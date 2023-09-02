@@ -161,12 +161,18 @@ from scripts.utility import get_text_box_theme, quit, scale  # pylint: disable=r
 from scripts.debugMenu import debugmode
 import pygame_gui
 import pygame
+import pygame.mixer as mixer
+
+
+pymixer = mixer.init()
 
 
 
 
 # import all screens for initialization (Note - must be done after pygame_gui manager is created)
 from scripts.screens.all_screens import start_screen # pylint: disable=ungrouped-imports
+
+openingSound = pygame.mixer.Sound("resources/sounds/Clash of Clans Intro Sound Effect.mp3")
 
 # P Y G A M E
 clock = pygame.time.Clock()
@@ -207,6 +213,7 @@ def loading_animation():
     
     # Load images, adjust color
     color = pygame.Surface((200, 210))
+    openingSound.play()
     if game.settings["dark mode"]:
         color.fill(game.config["theme"]["light_mode_background"])
     else:
